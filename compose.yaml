@@ -1,0 +1,15 @@
+services:
+  epgstation-ical:
+    build: .
+    image: epgstation-ical
+    pull_policy: never
+    restart: unless-stopped
+    ports:
+      - "${LISTEN_PORT:-3000}:3000"
+    environment:
+      TZ: Asia/Tokyo
+      EPGSTATION_URL: ${EPGSTATION_URL:?EPGSTATION_URLを.envで設定してください}
+      CALENDAR_NAME: ${CALENDAR_NAME:-epgstation reserved}
+      CHANNEL_CACHE_TTL: ${CHANNEL_CACHE_TTL:-3600}
+      HALF_WIDTH: ${HALF_WIDTH:-true}
+      REQUEST_TIMEOUT: ${REQUEST_TIMEOUT:-10}
