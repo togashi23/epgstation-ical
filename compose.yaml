@@ -13,3 +13,8 @@ services:
       CHANNEL_CACHE_TTL: ${CHANNEL_CACHE_TTL:-3600}
       HALF_WIDTH: ${HALF_WIDTH:-true}
       REQUEST_TIMEOUT: ${REQUEST_TIMEOUT:-10}
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
