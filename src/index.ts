@@ -22,9 +22,7 @@ async function handleCalendar(res: ServerResponse, head: boolean): Promise<void>
     const body = buildCalendar(reserves, channelNames);
     send(res, 200, 'text/calendar; charset=utf-8', body, head);
   } catch (error) {
-    // 空のカレンダーを200で返すとクライアントは「全予約が消えた」と解釈して
-    // カレンダーから予定を消してしまう。必ずエラーを返し、前回の内容を保持させる。
-    console.error('[error]予約の取得に失敗しました:', error);
+    console.error('[error] 予約の取得に失敗しました:', error);
     send(res, 502, 'text/plain; charset=utf-8', 'EPGStationから予約を取得できませんでした\n', head);
   }
 }

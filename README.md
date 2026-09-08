@@ -1,6 +1,6 @@
 # epgstation-ical
 
-EPGStationの録画予約をiCalendar (ICS)で配信します。
+EPGStationの録画予約をiCalendar形式で配信します。
 
 ## エンドポイント
 
@@ -17,7 +17,7 @@ cp .env.example .env
 docker compose up -d --build
 ```
 
-`http://<ホスト名>:3000/reserves.ics`を各カレンダーアプリで購読してください。
+`http://<ホスト名>:<待ち受けポート>/reserves.ics`を各カレンダーアプリで購読してください。
 
 ## 環境変数
 
@@ -28,7 +28,7 @@ docker compose up -d --build
 | `CALENDAR_NAME` | `epgstation reserved` | カレンダー名(`X-WR-CALNAME`) |
 | `CHANNEL_CACHE_TTL` | `3600` | チャンネル一覧のキャッシュ保持時間(秒) |
 | `HALF_WIDTH` | `true` | 番組名・チャンネル名を半角に正規化するか |
-| `REQUEST_TIMEOUT` | `10` | EPGStationへの1リクエストのタイムアウト(秒) |
+| `REQUEST_TIMEOUT` | `10` | EPGStationのリクエストタイムアウト(秒) |
 
 ## 開発
 

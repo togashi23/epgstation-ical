@@ -3,7 +3,7 @@ import { config } from './config.ts';
 import type { Reserve } from './epgstation.ts';
 
 /**
- * 予約タイトルの警告プレフィックスを生成
+ * 予約タイトルの状態マークを生成
  *
  * 録画されない予約はタイトル先頭に理由を出す
  */

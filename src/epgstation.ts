@@ -1,6 +1,6 @@
 import { config } from './config.ts';
 
-/** EPGStation v2の予約(使用するフィールドのみ定義する) */
+/** 予約情報(使用するフィールドのみ定義) */
 export interface Reserve {
   id: number;
   name: string;
@@ -45,7 +45,7 @@ async function getJson<T>(path: string): Promise<T> {
 }
 
 /**
- * 予約を全件取得する
+ * 予約を全件取得
  */
 export async function fetchAllReserves(): Promise<Reserve[]> {
   const reserves: Reserve[] = [];

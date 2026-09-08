@@ -9,7 +9,7 @@ interface ChannelCache {
 let cache: ChannelCache | undefined;
 
 /**
- * channelId ->チャンネル名 の対応表を返す
+ * channelId -> チャンネル名の対応表を返却
  *
  * @description 予約データにチャンネル名は含まれないため別途取得が必要だが、ほぼ変化しないのでTTL付きでプロセス内にキャッシュする。
  */

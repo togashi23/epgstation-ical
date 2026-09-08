@@ -28,7 +28,7 @@ function boolean(name: string, fallback: boolean): boolean {
   if (!value) return fallback;
   if (['1', 'true', 'yes', 'on'].includes(value)) return true;
   if (['0', 'false', 'no', 'off'].includes(value)) return false;
-  throw new Error(`環境変数${name}にはtrue / falseを指定してください: ${value}`);
+  throw new Error(`環境変数${name}にはtrue/falseを指定してください: ${value}`);
 }
 
 const apiUrl = stripTrailingSlash(required('EPGSTATION_URL'));
@@ -38,12 +38,12 @@ export const config = {
   apiUrl,
   /** 待ち受けポート */
   listenPort: integer('LISTEN_PORT', 3000),
-  /** カレンダー名前 */
+  /** カレンダー名 */
   calendarName: optional('CALENDAR_NAME', 'epgstation reserved'),
-  /** チャンネル一覧のキャッシュ保持時間(秒) */
+  /** チャンネル一覧のキャッシュ保持時間(ミリ秒) */
   channelCacheTtlMs: integer('CHANNEL_CACHE_TTL', 3600) * 1000,
-  /** 半角に正規化された番組名・チャンネル名を使うか */
+  /** 番組名・チャンネル名を半角に正規化するか */
   halfWidth: boolean('HALF_WIDTH', true),
-  /** EPGStationへの1リクエストあたりのタイムアウト(秒) */
+  /** EPGStationのリクエストタイムアウト(ミリ秒) */
   requestTimeoutMs: integer('REQUEST_TIMEOUT', 10) * 1000,
 } as const;
