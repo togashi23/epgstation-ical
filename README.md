@@ -19,6 +19,17 @@ docker compose up -d --build
 
 `http://<ホスト名>:<待ち受けポート>/reserves.ics`を各カレンダーアプリで購読してください。
 
+## 更新
+
+ソースを更新した場合はイメージの再ビルドが必要です。  
+`.env`の変更だけであれば再ビルドは不要です。
+
+```sh
+git pull
+docker compose build
+docker compose up -d
+```
+
 ## 環境変数
 
 | 変数 | 既定値 | 説明 |
